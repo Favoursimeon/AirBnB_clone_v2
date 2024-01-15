@@ -6,6 +6,8 @@ from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
 import models
+import shlex
+from models.city import City
 
 
 class State(BaseModel, Base):
@@ -25,6 +27,7 @@ class State(BaseModel, Base):
             attr = shlex.split(attr)
             if attr[0] == 'City':
                 city_list.append(all[key])
-            for obj in city_list:
-                if obj.state_id == self.id:
-                    res.append(obj)
+        for obj in city_list:
+            if obj.state_id == self.id:
+                res.append(obj)
+        return res
