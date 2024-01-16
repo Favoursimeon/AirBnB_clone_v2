@@ -48,7 +48,6 @@ class FileStorage:
                     'Review': Review
                   }
         try:
-            temp = {}
             with open(FileStorage.__file_path, 'r') as f:
                 temp = json.load(f)
                 for key, val in temp.items():
